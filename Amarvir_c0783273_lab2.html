@@ -1,0 +1,133 @@
+<html>
+    <head>
+        <title> Final Assignment </title>
+    </head>
+<body>
+    <font size="8" color="green">Final test lab</font><br><br>
+
+    <div id="farm">
+
+    Number of rows: <input type="text" id="t1" /><br><br>
+	Number of cols: <input type="text" id="t2" /><br><br>
+	
+	<button id="b1" onclick="generateTable()">Generate Table</button><br><br>
+
+    </div>
+
+
+    
+	<button id="b2" onclick="addColumn()" style="margin-bottom: 5px;">Add Column</button>
+	
+	<button id="b3" onclick="addRow()" style="margin-bottom: 5px;">Add Row</button>
+
+    <div id = "table">
+
+    </div>
+
+
+		
+	<script language="javascript">
+
+        let numberOfRows = 0;
+        let numberOfColumn = 0;
+
+
+        function generateTable(){
+            document.getElementById("farm").hidden = true;
+
+            var totalRow = document.getElementById('t1').value;
+            console.log(totalRow);
+            var totalColumn = document.getElementById('t2').value;
+            console.log(totalColumn)
+
+            numberOfColumn = totalColumn;
+            numberOfRows = totalRow
+
+            let table = document.createElement('table');
+            
+            for( var i = 0; i< totalRow; i++){
+                let tableRow = document.createElement('tr');
+                for( var j = 0; j< totalColumn; j++){
+                    let tableData = document.createElement('td');
+                    let text = document.createTextNode('Cell[' + i + '][' + j + ']');
+                    tableData.appendChild(text);
+                    tableData.style.border = "2px Solid red";
+                    tableRow.appendChild(tableData);
+
+                }
+                table.appendChild(tableRow);
+            }
+            document.getElementById("table").appendChild(table);
+        }
+
+        function addColumn(){
+    
+            
+            var totalRow = numberOfRows;
+            console.log(totalRow);
+            var totalColumn = parseInt(numberOfColumn) + 1;
+            console.log(totalColumn)
+
+            numberOfColumn = totalColumn;
+            let table = document.createElement('table');
+            
+            for( var i = 0; i< totalRow; i++){
+                let tableRow = document.createElement('tr');
+                for( var j = 0; j< totalColumn; j++){
+                    let tableData = document.createElement('td');
+                    let text = document.createTextNode('Cell[' + i + '][' + j + ']');
+                    tableData.appendChild(text);
+                    tableData.style.border = "2px Solid red";
+                    tableRow.appendChild(tableData);
+
+                }
+                table.appendChild(tableRow);
+            }
+            document.getElementById('table').innerHTML = "";
+            document.getElementById("table").appendChild(table);
+
+        }
+        function addRow(){
+
+            var totalColumn = numberOfColumn;
+            console.log(totalColumn);
+            var totalRow = parseInt(numberOfRows) + 1;
+            console.log(totalRow)
+
+            numberOfRows = totalRow;
+            let table = document.createElement('table');
+            
+            for( var i = 0; i< totalRow; i++){
+                let tableRow = document.createElement('tr');
+                for( var j = 0; j< totalColumn; j++){
+                    let tableData = document.createElement('td');
+                    let text = document.createTextNode('Cell[' + i + '][' + j + ']');
+                    tableData.appendChild(text);
+                    tableData.style.border = "2px Solid red";
+                    tableRow.appendChild(tableData);
+
+                }
+                table.appendChild(tableRow);
+            }
+            document.getElementById('table').innerHTML = "";
+            document.getElementById("table").appendChild(table);
+
+
+
+        }
+
+
+
+		
+		//Your code goes here
+	
+	</script>
+	
+
+
+
+</body>
+
+	
+	
+</html>
